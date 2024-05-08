@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>music</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<style type = "text/css">
+
+	* {
+        cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur829.cur), auto !important;
+        justify-content: center;
+    }
+    
+    body {
+        display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	font-family: "Nanum Gothic", sans-serif;
+  		font-style: normal;
+    }
+    
+ 	img {
+ 		width : 250px;
+ 		height : auto;
+ 	}
+ 	
+ 	div {
+ 		padding: 30px;
+ 		display: flex;
+ 		/*flex : 1;*/
+ 		flex-direction: column;
+ 		border : solid 1px silver;
+ 		justify-content: center;
+ 		align-items: center;
+ 		border-radius: 10px;
+ 	}
+ 	
+ 	section {
+ 		width : 30%;
+ 		display : flex;
+ 		flex-direction : row;
+ 		padding : 10px;
+ 		float : left;
+ 		
+ 	}
+ 	
+ 	#p1 {
+ 		color : #747d60;
+ 		font-weight : bold;
+ 	}
+ 	
+ 	#p2 {
+ 		font-size: 14px;
+ 		line-height: 1.7;
+ 	}
+ 	
+ 	button {
+ 		margin : 10px;
+ 	}
+ 	
+</style>
+</head>
+<body>
+<a title="Small Cute Green Pointer">
+    <img border="0" style="position:absolute; top: 0px; right: 0px;" />
+</a>
+<section id = "s1">
+	<div>
+	<img alt="" src="file/chrisjames.jpg">
+	<p id = "p1">Chris James - Hey it's Me</p>
+	<p>₩700</p>
+	<p id = "p2">안 들으면 바보</p>
+	<audio src = "file/chrisjames.mp3" controls></audio> <!-- src, autoplay, controls :: 속성 -->
+	<button onclick = "">장바구니에 추가</button>
+	</div>
+</section>
+<section id = "s2">
+	<div>
+	<img alt="" src="file/tkay.jpg">
+	<p id = "p1">Tkay Maidza - Cashmere</p>
+	<p>₩700</p>
+	<p id = "p2">듣는 순간 세상에서 제일 멋있는 사람이 될 수 있는 곡</p>
+	<audio src = "file/tkay.mp3" controls></audio>
+	<button onclick = "">장바구니에 추가</button>
+	</div>
+</section>
+<section id = "s3">
+	<div>
+	<img alt="" src="file/brb.jpg">
+	<p id = "p1">brb., SIRUP - sad girl</p>
+	<p>₩700</p>
+	<p id = "p2">학원에 있을 때의 아영이 테마곡</p>
+	<audio src = "file/brb.mp3" controls></audio>
+	<button onclick = "">장바구니에 추가</button>
+	</div>
+</section>
+
+</body>
+</html>

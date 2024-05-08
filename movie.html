@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>movie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<style type = "text/css">
+
+	* {
+        cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur829.cur), auto !important;
+    }
+    
+    body {
+    	font-family: "Nanum Gothic", sans-serif;
+  		font-style: normal;
+    }
+    
+ 	.poster {
+ 		width : 250px;
+ 		height : 350px;
+ 		cursor : pointer;
+ 	}
+ 	
+ 	#video-container { /*비디오 자리*/
+ 		width: 100%;
+ 		height: 300px;
+ 		display: flex;
+ 		justify-content: center;
+ 		align-items: center;
+ 	}
+ 
+	#d1 {
+   		display: flex;
+   		justify-content: center;
+    	align-items: center;
+	}
+
+	#d_inner {
+    	display: flex;
+	}
+
+	#d2, #d3, #d4 {
+    	flex: 1;
+   		border: solid 1px silver;
+    	padding: 30px;
+    	margin: 50px;
+    	border-radius: 10px;
+	}
+ 	
+ 	#empty-video {
+ 		width: 400px;
+ 		height: 300px;
+ 		animation: blink-animation 1s infinite;
+ 		display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	text-align: center;
+ 	}
+ 	
+ 	#p1 {
+ 		color : #747d60;
+ 		font-weight : bold;
+ 	}
+ 	
+ 	#p2 {
+ 		font-size: 14px;
+ 		line-height: 1.7;
+ 	}
+ 	
+ 	.button-container {
+  		display: flex;
+  		justify-content: center;
+	}
+	
+ 	@keyframes blink-animation {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+ 
+ 	
+</style>
+
+<script>
+function playVideo(videoUrl) {
+    const videoContainer = document.getElementById('video-container');
+    const emptyVideo = document.getElementById('empty-video');
+
+    // 비디오를 빈 화면으로 이동시키고 URL 설정
+    videoContainer.innerHTML = `<iframe src="${videoUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width: 400px; height: 300px;"></iframe>`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const posters = document.querySelectorAll('.poster');
+    posters.forEach(poster => {
+        poster.addEventListener('click', function() {
+            const videoUrl = poster.dataset.videoUrl;
+            playVideo(videoUrl);
+            // 포스터 클릭 후 깜빡이는 텍스트 숨기기
+            document.getElementById('empty-video').style.display = 'none';
+        });
+    });
+    
+    // 페이지 로드시 깜빡이는 텍스트 표시
+    blinkText();
+});
+
+function blinkText() {
+    const emptyVideo = document.getElementById('empty-video');
+    emptyVideo.innerHTML = "포스터를 클릭해 보세요!"; // 깜빡이는 텍스트 설정
+}
+</script>
+
+
+
+</head>
+<body>
+<a title="Small Cute Green Pointer">
+    <img border="0" style="position:absolute; top: 0px; right: 0px;" />
+</a>
+
+<div id = "video-container">
+	<div id = "empty-video"></div>
+</div>
+
+<div id = "d1">
+  <div id="d_inner">
+	<div id = "d2">
+   		<img class="poster" alt="" src="file/괴물.jpg" data-video-url="https://www.youtube.com/embed/5rpYSPVJZmA?si=nlkgkmojPwauKl0h">
+   		<p id = "p1"> 괴물 </p>
+   		<p>₩15,000</p>
+   		<p id = "p2"> 개봉 | 2023.11.29<br>
+   			등급 | 12세 이상 관람가<br>
+   			장르 | 드라마, 스릴러<br>
+   			러닝타임 | 127분</p>
+   			<div class="button-container">
+   			<button onclick = "">장바구니에 추가</button>
+   			</div>
+     </div>   
+     <div id = "d3">
+        <img class="poster" alt="" src="file/비바리움.jpg" data-video-url="https://www.youtube.com/embed/7Qpy5OfacM8?si=jKVN_CVsJhCVhajj">
+        <p id = "p1"> 비바리움 </p>
+        <p>₩15,000</p>
+   		<p id = "p2"> 개봉 | 2020.07.16<br>
+   			등급 | 15세 이상 관람가<br>
+   			장르 | 드라마, 스릴러<br>
+   			러닝타임 | 97분</p>
+   			<div class="button-container">
+   			<button onclick = "">장바구니에 추가</button>
+   			</div>
+      </div>
+      <div id = "d4">  
+        <img class="poster" alt="" src="file/소울메이트.jpg" data-video-url="https://www.youtube.com/embed/f93j8rLS69k?si=9uw6S77_3l5QQDFY">
+        <p id = "p1"> 소울메이트 </p>
+        <p>₩15,000</p>
+   		<p id = "p2"> 개봉 | 2023.03.15<br>
+   			등급 | 12세 이상 관람가<br>
+   			장르 | 드라마, 로맨스<br>
+   			러닝타임 | 124분</p>
+   			<div class="button-container">
+   			<button onclick = "">장바구니에 추가</button>
+   			</div>
+   		</div>
+	</div>
+</div>
+</body>
+</html>

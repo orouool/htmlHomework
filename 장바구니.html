@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>장바구니</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<style type="text/css">
+
+    * {
+        cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur829.cur), auto !important;
+    }
+    
+    body {
+        font-family: "Nanum Gothic", sans-serif;
+        font-style: normal;
+        justify-content: center; /* 수평 가운데 정렬 */
+        align-items: center; /* 수직 가운데 정렬 */
+     }
+    
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* 수직으로 정렬 */
+        height: 100%;
+    }
+    
+    table {
+        width: 800px;
+        height: 300px;
+        text-align: center;
+    }
+    
+    #attr {
+        font-weight: bold; 
+        color: #747d60;
+    }
+    
+    img {
+        padding: 10px;
+        width: 100px;
+        height: auto;
+    }
+    
+    .button-container {
+        justify-content: center;
+        flex-direction: row;
+        gap: 10px; /* 버튼 간격 조정 */
+        padding-top: 50px;
+    }
+ 
+</style>
+<script>
+    function successForm() {
+        alert("구매가 완료되었습니다! 감사합니다!")
+    }
+    
+    function calculateTotal(row) {
+        var priceCell = row.cells[1];
+        var quantityCell = row.cells[2];
+        var totalCell = row.cells[3];
+        
+        var price = parseFloat(priceCell.textContent.replace("₩", "").replace(",", ""));
+        var quantity = parseInt(quantityCell.firstChild.value);
+        
+        var total = price * quantity;
+        totalCell.textContent = "₩" + total.toLocaleString();
+    }
+
+    function resetForm() {
+        // 각 항목에 대해 초기화
+        document.getElementById("total1").textContent = "₩30,000";
+        document.getElementById("total2").textContent = "₩3,200";
+        document.getElementById("total3").textContent = "₩139,000";
+
+        // 수량 input 초기화
+        var quantityInputs = document.querySelectorAll('input[type="number"]');
+        quantityInputs.forEach(function(input) {
+            input.value = 1;
+        });
+    }
+    
+    
+</script>    
+</head>
+<body>
+<a title="Small Cute Green Pointer">
+    <img border="0" style="position:absolute; top: 0px; right: 0px;" />
+</a>
+<div>
+    <img alt="" src="file/카트.png">
+    <table border="1">
+        <tr id="attr">
+            <th>상품명</th>
+            <th>가격</th>
+            <th>수량</th>
+            <th>합계</th>
+        </tr>
+        <tr>
+            <td>튜나타르타르</td>
+            <td>₩30,000</td>
+            <td><input type="number" value="1" onchange="calculateTotal(this.parentNode.parentNode)"></td>
+            <td id="total1">₩30,000</td>
+        </tr>
+        <tr>
+            <td>휘낭시에</td>
+            <td>₩3,200</td>
+            <td><input type="number" value="1" onchange="calculateTotal(this.parentNode.parentNode)"></td>
+            <td id="total2">₩3,200</td>
+        </tr>
+        <tr>
+            <td>Tata cotton shirt (White)</td>
+            <td>₩139,000</td>
+            <td><input type="number" value="1" onchange="calculateTotal(this.parentNode.parentNode)"></td>
+            <td id="total3">₩139,000</td>
+        </tr>
+    </table>
+    <div class="button-container">
+        <input type="button" value="계산" onclick="calculateForm()">
+        <input type="button" value="구매" onclick="successForm()">
+        <input type="button" value="초기화" onclick="resetForm()">
+    </div>
+</div>
+</body>
+</html>

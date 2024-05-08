@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<style type = "text/css">
+
+	* {
+        cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur829.cur), auto !important;
+    }
+    
+    body {
+    	font-family: "Nanum Gothic", sans-serif;
+  		font-style: normal;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center; /*수평 정렬*/
+        align-items: center; /*수직 정렬*/
+        height: 1000px;
+    }
+    
+    .content {
+    	border: solid 1px silver;
+        display: flex;
+        flex-direction: column; /* 수직으로 정렬 */
+        width: 400px;
+        padding: 60px;
+    }
+    
+    .group {
+    	display: flex;
+    	margin-bottom: 10px;
+    	align-items: center;
+    	justify-content: flex-end;
+    }
+    
+    .group label {
+    	margin-right: 10px;	
+    	flex-grow: 1;
+    	flex-shrink: 0;
+    }
+    
+    input {
+    	display: inline-block;
+    	margin-bottom: 10px;
+    	flex-grow: 1; 
+
+    }
+    
+    p {
+   		display: flex;
+    	justify-content: center;
+        align-items: center;
+    }
+    
+    
+	#key {
+		margin: auto; 
+    	display: flex;
+   		justify-content: center;
+    	align-items: center;
+    	width: 50px;
+    	height: auto;
+	}
+    
+    
+</style>
+<script>
+	function resetForm() {
+    	// form 요소 선택
+   		var form = document.getElementById("signupform");
+
+    	// form 내의 모든 입력 요소 선택
+    	var inputs = form.getElementsByTagName("input");
+
+   		// 입력 요소의 값 비우기
+    	for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = "";
+    	}
+	}
+	
+	function signUp() {
+		alert("가입이 완료되었습니다! 환영합니다!")
+	}
+</script>   
+</head>
+<body>
+<a title="Small Cute Green Pointer">
+    <img border="0" style="position:absolute; top: 0px; right: 0px;" />
+</a>
+<div class = "container">
+    <div class = "content">
+    <img id = "key" alt="" src="file/key.png">
+    <p>회원가입</p>
+    <br>
+    <form action = "#" id = "signupform">
+    <div class = "group">
+    	<label>아이디</label><input type = "text" name = "userID">
+    </div>
+    <div class = "group">
+   		<label>패스워드</label><input type = "password" name = "userPw">
+    </div>
+    <div class = "group">
+   		<label>패스워드 확인</label><input type = "password" name = "userPw2">
+    </div>
+    <div class = "group">
+    	<label>이름</label><input type = "text" name = "userName" placeholder = "고양이">
+    </div>
+    <div class = "group">
+    	<label>전화번호</label><input type = "text" name = "userPhone" placeholder = "010-1234-5678">
+    </div>
+    <div class = "group">
+    	<label>이메일</label><input type = "email" name = "userMail" placeholder = "nyang@jjang.com">
+    </div>
+    <div class = "group">
+    	<label>생일</label><input type = "date" name = "userBirth">
+    </div>
+    <div class = "group">
+    	<label>홈페이지</label><input type = "text" name = "userPage" placeholder = "www.google.com">
+    </div>
+    <div class = "group">
+    	<label>성별</label><input type = "radio" name = "userGender" value = "male"><label>남자</label>
+    			  		<input type = "radio" name = "userGender" value = "female"><label>여자</label>
+    </div>
+    </form>
+    <input type = "submit" name = "register" value = "가입" onclick = "signUp()">
+    <input type = "button" value = "초기화" onclick = "resetForm()">
+	</div>
+</div>
+
+</body>
+</html>

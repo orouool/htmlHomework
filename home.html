@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<style type = "text/css">
+
+	* {
+        cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur829.cur), auto !important;
+    }
+    
+	body *{ /* * : body 태그 안에 있는 모든 것*/
+		box-sizing : border-box;
+		margin : 3px;
+		font-family: "Nanum Gothic", sans-serif;
+  		font-style: normal;
+	}
+	
+	#container {
+		display : flex;
+		flex-direction : column;
+		height : 1000px;
+	}
+	
+	header {
+		height : 10%;
+		background-image : url(file/헤더.jpg);
+		background-size : auto;
+		border: 1px solid silver;
+	}
+	
+	nav {
+		display : flex;
+		justify-content : center;
+	}
+	
+	nav ul {
+		display : flex;
+		list-style : none;
+	}
+	
+	nav ul li {
+		margin-right : 100px;
+	}
+	
+	nav ul li a {
+		color: #808080;
+		text-decoration: none;
+	}
+	
+	nav ul li a:visited {
+   		color: #808080; /* 방문한 링크의 색상 */
+	}
+	
+	nav ul li a:hover,
+	nav ul li a:focus,
+	nav ul li a:active {
+    	color: #b0bdaa;
+	}
+	
+	nav ul li:last-child {
+		margin-right : 0; /*마지막 메뉴 아이템의 오른쪽 간격 제거*/
+	}
+	
+	#loginform input {
+		display : block;
+		margin-bottom : 5px;
+	}
+	
+	#menu {
+		list-style-type: none;
+	}
+	
+	#menu li {
+		margin-bottom : 10px;
+	}
+	
+	#menu li a {
+    	color: silver;
+   		text-decoration: none;
+    	margin-left: -40px;
+	}
+	
+	#menu li a:visited {
+   		color: #808080; /* 방문한 링크의 색상 */
+	}
+
+	#menu li a:hover,
+	#menu li a:focus,
+	#menu li a:active {
+    	color: #b0bdaa; /* 마우스를 올렸을 때와 포커스 또는 클릭 상태일 때의 색상 */
+	}
+	
+	footer {
+		height : 30px;
+		text-align : center;
+		line-height: 30px;
+		padding-right : 10px;
+		font-size: 12px;
+		color: #808080;
+	}
+	
+	#content {
+		height : 50%;
+		display : flex;
+		flex-direction : row;
+	}
+	
+	#left {
+		/*flex : 1 1 auto; */
+		/* flex : 1; */ /*1 1, 0 */
+		flex : 10%;
+		background-color : white;
+		padding : 20px;
+		border : 1px solid silver;
+	}
+	
+	#right {
+		flex : 10%;
+		background-color : white;
+		padding : 20px;
+		border : 1px solid silver;
+		order: 2;
+	}
+	
+	#main {
+		height : 750px;
+		margin-bottom : 50px;
+		flex : 100%;
+		background-color : white;
+		display : flex;
+		flex-direction: column;
+		
+	}
+	
+	h1 {
+		text-align : center;
+		line-height : 75px;
+	}
+	
+	h4 {
+		padding-bottom : 10px;
+	}
+	
+	h3, h4 {
+		color : #747d60;
+		margin-bottom : 10px;
+	}
+	
+	span{
+		font-size : 14px;
+	}
+	
+	#semantic {
+		font-weight : bold;
+		font-size : 20px;
+	}
+	
+	#article1 {
+		flex : 1;
+		padding : 20px;
+		display: flex;
+    	justify-content: center;
+    	align-items: center;
+	}
+	
+	#article1 iframe {
+		width : 100%;
+		height : 100%;
+	}
+	
+	a[href="회원가입.html"]:link,
+	a[href="회원가입.html"]:visited,
+	a[href="장바구니.html"]:link,
+	a[href="장바구니.html"]:visited {
+   		color: #808080; /* 링크 기본 색상 */
+    	text-decoration: none; /* 밑줄 제거 */
+	}
+
+	a[href="회원가입.html"]:hover,
+	a[href="회원가입.html"]:focus,
+	a[href="회원가입.html"]:active,
+	a[href="장바구니.html"]:hover,
+	a[href="장바구니.html"]:focus,
+	a[href="장바구니.html"]:active {
+    	color: #b0bdaa; /* hover, focus, active 상태 색상 */
+	}
+
+	
+</style>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+    var links = document.querySelectorAll("#menu li a");
+    var iframe = document.querySelector("#article1 iframe");
+
+    links.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault(); // 링크의 기본 동작 방지
+
+            var url = this.getAttribute("href");
+            iframe.src = url; // iframe의 src 속성을 클릭된 링크의 href 속성으로 설정
+        });
+    });
+});
+	
+	function resetForm() {
+		document.getElementById("loginform").reset();
+	}
+	
+</script>
+
+</head>
+<body>
+<a title="Small Cute Green Pointer">
+    <img border="0" style="position:absolute; top: 0px; right: 0px;" />
+</a>
+<div id = "container">
+	<header>
+	</header>
+	<nav>
+		<ul>
+			<li><a href = "home.html">home</a></li>
+			<li><a href = "#">about us</a></li>
+			<li><a href = "#">news</a></li>
+			<li><a href = "#">my account</a></li>
+			<li><a href = "#">contacts</a></li>
+		</ul>
+	</nav>
+	
+	<div id = "content">
+		<aside id = "left">
+			<div id = "login">
+				<h4>Login</h4>
+				<form action = "#" id = "loginform">
+					<input type = "text" name = "userName" placeholder = "ID">
+					<input type = "password" name = "password" placeholder = "PASSWORD">
+					<input type = "submit" value = "login">
+					<input type = "button" value = "reset" onclick = "resetForm()">
+					</form>
+					<a href = "회원가입.html" target = "_blank"><span class="text">회원가입</span></a>
+			</div>
+			
+			<br>
+			
+			<div>
+			<h3>category</h3>
+			<ul id = "menu">
+			<li><a href = "clothing.html">clothing</a></li>
+				<li><a href = "shoes.html">shoes</a></li>
+				<li><a href = "music.html">music</a></li>
+				<li><a href = "movie.html">movie</a></li>
+				<li><a href = "food.html">food</a></li> <!-- 수정 -->
+				<li><a href = "dessert.html">dessert</a></li>
+			</ul>
+			</div>
+		</aside>
+		<aside id = "right">
+			<div id = "cart">
+				<h4>Cart</h4>
+				<p>* empty *</p>
+				<a href = "장바구니.html" target = "_blank" ><span class="text">장바구니로 이동</span></a>
+			</div>
+		</aside>
+		
+		<section id = "main">
+			<article id = "article1">
+				<iframe src = "기본화면.html" name = "ifr"></iframe>
+			</article>
+		</section>
+	</div>
+
+</div>
+	<footer>대전광역시 중구 오류동 175-13 4층 | 사업자 등록번호: 123-456-789 | 통신판매번호 : 2024-대전-1234 | 대표자명 신아영
+	Copyright 2024.신아영.All rights reserved.</footer>
+</body>
+</html>
